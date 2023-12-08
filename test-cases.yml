@@ -1,31 +1,91 @@
 ---
 - summary: |
+    Проверка регистрации существующего пользователя
+  requirement: |
+    Нельзя зарегистрировать существующего пользователя
+  prerequisites: |
+    Открыта страница регистрации
+  test-data: |
+    Тестовые данные
+    nickname = hexlet email = hexlet@mail.ru Пароль = password
+  steps:
+    - Вводим nickname
+    - Вводим email
+    - Вводим пароль
+    - Нажимаем кнопку «submit»
+  expected-result: |
+    Ошибка "Пользователь уже существует"
+
+- summary: |
+    Проверка регистрации несуществующего пользователя
+  requirement: |
+    Пользователь должен быть зарегистрирован
+  prerequisites: |
+    Открыта страница регистрации
+  test-data: |
+    Тестовые данные
+    no data
+  steps:
+    - Вводим nickname
+    - Вводим email
+    - Вводим пароль
+    - Нажимаем кнопку «submit»
+  expected-result: |
+    Пользователь успешно зарегистрирован
+
+- summary: |
     Проверка авторизации с существующими email и паролем
   requirement: |
-    При верном вводе логине и пароля пользователь должен войти в систему
+    При верном вводе email и пароля пользователь должен войти в систему
   prerequisites: |
     Открыта страница авторизации
   test-data: |
     Тестовые данные
-    Логин = ilona Пароль = password
+    email = hexlet@mail.ru Пароль = password
   steps:
-    - Вводим логин
+    - Вводим email
     - Вводим пароль
     - Нажимаем кнопку «Войти»
   expected-result: |
     Пользователь должен попасть на главную страницу
 
 - summary: |
-    Проверка авторизации с несуществующими email и паролем
+    Проверка авторизации с несуществующим email 
   requirement: |
-    При неправильном email или пароле пользователь должен получить сообщение об ошибке
+    При несуществующем email пользователь должен получить сообщение об ошибке
   prerequisites:
     Открыта страница авторизации
   test-data: |
-    Логин = Логин = hexlet Пароль = badpass
+    test@bk.ru Пароль = testtest
   steps:
-    - Вводим логин
+    - Вводим email
     - Вводим пароль
     - Нажимаем кнопку «Войти»
   expected-result: |
-    Пользователь должен получить сообщение об ошибке
+    "email не найден"
+
+- summary: |
+    Проверка победы игрока в созданной игре 
+  requirement: |
+    Победа игрока при верном решении задачи 
+  prerequisites: |
+    Пользователь авторизован
+  test-data: |
+    const _ = require("lodash");
+    const R = require("rambda");
+    const solution = (width, length) => {
+    return width * length;
+    };
+    module.exports = solution;
+  steps:
+    - Нажать кнопку "create a game"
+    - Выбрать Level (Уровень) с одной звездой
+    - Выбрать Game Type "With a bot"
+    - Выбрать Time control
+    - Выбрать задачу "rect_area"
+    - Нажать "create battle"
+    - Выбрать язык Node.js
+    - Ввести тестовые данные
+    - Нажать кнопку "Run"
+  expected-result: |
+    Окно с надписью "Woohoo, you're Champion!!!!!" 
