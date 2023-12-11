@@ -11,7 +11,7 @@
   steps:
     - Вводим nickname
     - Вводим email
-    - Вводим пароль
+    - Вводим password
     - Нажимаем кнопку «submit»
   expected-result: |
     Ошибка "Пользователь уже существует"
@@ -28,7 +28,7 @@
   steps:
     - Вводим nickname
     - Вводим email
-    - Вводим пароль
+    - Вводим password
     - Нажимаем кнопку «submit»
   expected-result: |
     Пользователь успешно зарегистрирован
@@ -44,10 +44,10 @@
     email = hexlet@mail.ru Пароль = password
   steps:
     - Вводим email
-    - Вводим пароль
+    - Вводим password
     - Нажимаем кнопку «Войти»
   expected-result: |
-    Пользователь должен попасть на главную страницу
+    Пользователь авторизован
 
 - summary: |
     Проверка авторизации с несуществующим email 
@@ -56,16 +56,16 @@
   prerequisites:
     Открыта страница авторизации
   test-data: |
-    test@bk.ru Пароль = testtest
+    email = test@bk.ru Пароль = testtest
   steps:
     - Вводим email
-    - Вводим пароль
+    - Вводим password
     - Нажимаем кнопку «Войти»
   expected-result: |
     "email не найден"
 
 - summary: |
-    Проверка победы игрока в созданной игре 
+    Проверка победы пользователя в игре c ботом
   requirement: |
     Победа игрока при верном решении задачи 
   prerequisites: |
