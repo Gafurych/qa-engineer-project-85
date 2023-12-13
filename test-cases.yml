@@ -89,3 +89,35 @@
     - Нажать кнопку "Run"
   expected-result: |
     Окно с надписью "Woohoo, you're Champion!!!!!" 
+
+    - summary: |
+    Проверка создания игры без регистрации 
+  requirement: |
+    Пользователь может создать игру без регистрации
+  prerequisites:
+    no empty
+  test-data: |
+    no empty
+  steps:
+    - Нажимаем кнопку «Try simple battle»
+  expected-result: |
+    Игра создана
+
+    - summary: |
+    Проверка создания игры с другим пользователем
+  requirement: |
+    Пользователь может создать игру с другим пользователем
+  prerequisites:
+    Пользователь авторизован
+  test-data: |
+    no empty
+  steps:
+    - Нажать кнопку "create a game"
+    - Выбрать любой Level (Уровень) 
+    - Выбрать Game Type "With other users"
+    - Выбрать "Time control"
+    - Выбрать "random task"
+    - Нажать "create battle"
+  expected-result: |
+    Игра создана
+
