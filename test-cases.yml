@@ -121,3 +121,28 @@
   expected-result: |
     Игра создана
 
+- summary: |
+    Проверка успешной авторизации через Github
+  requirement: |
+    Пользователь должен авторизоваться через Github
+  prerequisites:
+    Пользователь зарегистрирован и авторизован на Github
+  test-data: |
+    no empty
+  steps:
+    Нажать "Sign in with Github"
+  expected-result: |
+    Пользователь успешно авторизован
+
+    - summary: |
+    Проверка успешной авторизации через Discord
+  requirement: |
+    Пользователь должен авторизоваться через Discord
+  prerequisites:
+    Пользователь зарегистрирован и авторизован на Discord
+  test-data: |
+    no empty
+  steps:
+    Нажать "Sign in with Discord"
+  expected-result: |
+    Пользователь успешно авторизован
