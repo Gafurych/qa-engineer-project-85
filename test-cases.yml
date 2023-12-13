@@ -130,7 +130,7 @@
   test-data: |
     no empty
   steps:
-    Нажать "Sign in with Github"
+    - Нажать "Sign in with Github"
   expected-result: |
     Пользователь успешно авторизован
 
@@ -143,6 +143,6 @@
   test-data: |
     no empty
   steps:
-    Нажать "Sign in with Discord"
+    - Нажать "Sign in with Discord"
   expected-result: |
     Пользователь успешно авторизован
